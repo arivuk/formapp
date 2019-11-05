@@ -1,0 +1,40 @@
+<div>
+    <h1>Student Registration </h1>
+
+    <form name="Registration" (ngSubmit)="aa.valid && Signup(aa)" #aa="ngForm">
+        <table class="table">
+            <tr>
+                <td>Firstname*</td>
+                <td>
+                    <input type="text"  minlength="5" maxlength="10" name="fname" #firstname required [(ngModel)]="fname" />
+                    <div *ngIf="aa.submitted && aa.controls.fname.invalid" class="txterror" >
+                        <div *ngIf="aa.controls.fname.errors.required">Firstname is required</div>
+                    
+                        <div *ngIf="!aa.controls.fname.errors.required && aa.controls.fname.errors.minlength">Firstname min length 5</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Lastname</td>
+                <td><input type="text" #lastname name="lname" required [(ngModel)]="lname" />
+                    <div *ngIf="aa.submitted && aa.controls.lname.invalid">
+                            <div *ngIf="aa.controls.lname.errors.required">Lastname is required</div>
+                        </div>
+    
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input type="text" #mobile name="mmobile"  [(ngModel)]="mmobile" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" #email name="femail"  [(ngModel)]="femail" /></td>
+            </tr>
+            <tr>
+                <td><button>Add </button> <input type="button" value="Sgn" /> </td>
+                <td><input type="submit" value="Signup" /> <input type="reset" value="Clear" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
