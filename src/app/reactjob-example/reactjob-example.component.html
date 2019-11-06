@@ -1,0 +1,16 @@
+<form [formGroup]="userinfoprofile" (ngSubmit)="add()">
+
+    firstname: <input type="text" formControlName="firstname" required />
+
+    <div formArrayName="job">
+        <h3>Job</h3> <button (click)="addJob()">Add Job</button>
+
+        <div *ngFor="let address of userinfoprofile.controls.job.controls; let i=index">
+            <label>
+                Company {{i+1}}:
+                <input type="text" [formControlName]="i">
+            </label>
+        </div>
+    </div>
+    <button>Submit</button>
+</form>

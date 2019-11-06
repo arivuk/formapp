@@ -1,0 +1,20 @@
+<div>React Form</div>
+
+<form [formGroup]="profile" (ngSubmit)="profile.valid && Submit()">
+    Username: <input type="text" formControlName="username" required />
+    <div *ngIf="profile.invalid && profile.controls.username.invalid" class="txterror" >
+        <div *ngIf="profile.controls.username.errors.required">Username is required</div>
+    </div>
+<br/>
+    email: <input type="text"  formControlName="email" required/>
+    
+    <br/>
+    mobile: <input type="text"  formControlName="mobile"/>
+    <br/>
+    <div formGroupName="address">
+        city: <input type="text"  formControlName="city"/> <br />
+        
+        country: <input type="text"  formControlName="country"/> <br />
+    </div>
+    <button [disabled]="profile.invalid">Add</button>
+</form>
