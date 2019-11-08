@@ -5,7 +5,7 @@
     <div formArrayName="job">
         <h3>Job</h3> <button (click)="addJob()">Add Job</button>
 
-        <div *ngFor="let address of userinfoprofile.controls.job.controls; let i=index">
+        <div *ngFor="let address of userinfoprofile.controls.job['controls']; let i=index">
             <label>
                 Company {{i+1}}:
                 <input type="text" [formControlName]="i">
@@ -14,3 +14,31 @@
     </div>
     <button>Submit</button>
 </form>
+
+
+<dx-data-grid
+    id="gridContainer" 
+    [dataSource]="employees"
+    [showBorders]="true">
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxi-column dataField="Prefix" caption="Title" [width]="70"></dxi-column>
+    <dxi-column dataField="FirstName" sortOrder="asc"></dxi-column>
+    <dxi-column dataField="LastName" sortOrder="asc"></dxi-column>
+    <dxi-column dataField="City"></dxi-column>
+    <dxi-column dataField="State"></dxi-column>
+    <dxi-column 
+        dataField="Position" 
+        [width]="130" 
+        [allowSorting]="!positionDisableSorting"></dxi-column>
+    <dxi-column dataField="HireDate" dataType="date"></dxi-column>    
+</dx-data-grid>
+<div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        <dx-check-box 
+            [(value)]="positionDisableSorting" 
+            (onValueChanged)="onValueChange($event)"
+            text="Disable Sorting for the Position Column"> 
+        </dx-check-box>
+    </div>
+</div>

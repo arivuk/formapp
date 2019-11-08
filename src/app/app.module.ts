@@ -6,7 +6,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactExampleComponent } from './react-example/react-example.component';
 import { ReactjobExampleComponent } from './reactjob-example/reactjob-example.component';
-
+//npm i devextreme-angular
+//https://js.devexpress.com/Demos/WidgetsGallery/Demo/DataGrid/MultipleSorting/Angular/Light/
+import { DxDataGridComponent, DxDataGridModule, DxCheckBoxModule } from 'devextreme-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +17,8 @@ import { ReactjobExampleComponent } from './reactjob-example/reactjob-example.co
     ReactjobExampleComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule
+    BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule,DxDataGridModule,
+    DxCheckBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

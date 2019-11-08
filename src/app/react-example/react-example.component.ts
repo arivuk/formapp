@@ -25,6 +25,6 @@ export class ReactExampleComponent implements OnInit {
   ngOnInit() {
   }
   Submit(){
-    console.log(this.profile);
+    console.log(this.profile.value.username);
   }
 }

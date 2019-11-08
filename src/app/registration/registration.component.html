@@ -1,6 +1,8 @@
 <div>
     <h1>Student Registration </h1>
+<input [(ngModel)]="name" /> {{name}}
 
+<input [value]="name"/>
     <form name="Registration" (ngSubmit)="aa.valid && Signup(aa)" #aa="ngForm">
         <table class="table">
             <tr>
@@ -37,4 +39,6 @@
             </tr>
         </table>
     </form>
+<!-- 
+    <app-react-example></app-react-example> -->
 </div>
